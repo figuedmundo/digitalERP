@@ -1,5 +1,7 @@
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :total
+  attr_accessible :description, :price, :total, :product_brand_id
+  belongs_to :product_brand
+
 
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
