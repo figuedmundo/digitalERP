@@ -1,4 +1,11 @@
 DigitalERP::Application.routes.draw do
+  # get "products/new"
+  resources :products
+  
+  root :to => 'products#new'
+
+
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
