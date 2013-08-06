@@ -1,3 +1,16 @@
+# == Schema Information
+#
+# Table name: products
+#
+#  id               :integer          not null, primary key
+#  description      :string(255)
+#  total            :integer
+#  price            :float
+#  created_at       :datetime         not null
+#  updated_at       :datetime         not null
+#  product_brand_id :integer
+#
+
 class Product < ActiveRecord::Base
   attr_accessible :description, :price, :total, :product_brand_id
   belongs_to :product_brand
