@@ -1,9 +1,9 @@
 DigitalERP::Application.routes.draw do
 
-  # get "products/new"
   resources :products
   resources :product_brands
   resources :customers
+  resources :suppliers
   
   root :to => 'products#new'
 
