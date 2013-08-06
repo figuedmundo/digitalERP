@@ -12,7 +12,7 @@
 #
 
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :total, :product_brand_id
+  attr_accessible :description, :price, :total, :product_brand_id, :code
   belongs_to :product_brand
 
 
@@ -22,6 +22,9 @@ class Product < ActiveRecord::Base
                     :numericality => true
   validates :total, presence: true,
                     :numericality => { :only_integer => true }
+  validates :code, presence: true
+
 
   before_save { |product| product.description = description.downcase }
+  before_save { |product| product.code = code.downcase }
 end
