@@ -9,11 +9,15 @@
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  product_brand_id :integer
+#  code             :string(255)
 #
 
 class Product < ActiveRecord::Base
-  attr_accessible :description, :price, :total, :product_brand_id, :code
+  attr_accessible :description, :total, :product_brand_id, :code
   belongs_to :product_brand
+  has_many :buys
+  has_many :suppliers, through: :buys
+
 
 
   validates :description, presence: true,

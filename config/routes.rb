@@ -1,9 +1,11 @@
 DigitalERP::Application.routes.draw do
 
+
   resources :products
   resources :product_brands
   resources :customers
   resources :suppliers
+  resources :buys
   
   root :to => 'products#new'
 

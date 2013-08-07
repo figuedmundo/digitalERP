@@ -1,10 +1,27 @@
+# == Schema Information
+#
+# Table name: suppliers
+#
+#  id         :integer          not null, primary key
+#  first_name :string(255)
+#  last_name  :string(255)
+#  email      :string(255)
+#  city       :string(255)
+#  address    :string(255)
+#  phone      :integer
+#  cellphone  :integer
+#  created_at :datetime         not null
+#  updated_at :datetime         not null
+#
+
 class Supplier < ActiveRecord::Base
-  attr_accessible :address, :cellphone, :city, :email, :first_name, :last_name, :phone
+  attr_accessible :address, :cellphone, :city, :email, :name, :phone
+  has_many :buys
+  has_many :products, through: :buys
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
-  validates :first_name, presence: true
-  validates :last_name, presence: true
+  validates :name, presence: true
   # validates :email, uniqueness: { case_sensitive: false },
   #                   format: { with: VALID_EMAIL_REGEX }
   # validates :phone, numericality: true

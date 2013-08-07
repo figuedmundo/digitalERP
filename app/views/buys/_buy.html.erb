@@ -1,0 +1,12 @@
+<tr>
+  <td><%= buy.product.code %></td>
+  <td><%= buy.product.product_brand.description unless buy.product.product_brand.nil? %></td>
+  <td><%= buy.product.description %></td>
+  <td><%= buy.supplier.name %></td>
+  <td><%= buy.amount %></td>
+  <td><%= buy.price %></td>
+  <td><%= buy.total %></td>
+  <td><%= buy.created_at.localtime.strftime("%d-%m-%y") %></td>
+
+</tr>
+

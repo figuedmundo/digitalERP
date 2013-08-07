@@ -1,0 +1,2 @@
+JQuery ->
+  $('.dropdown-toggle').dropdown()

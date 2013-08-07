@@ -11,7 +11,20 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130806210410) do
+ActiveRecord::Schema.define(:version => 20130807033837) do
+
+  create_table "buys", :force => true do |t|
+    t.integer  "supplier_id"
+    t.integer  "product_id"
+    t.integer  "amount"
+    t.float    "price"
+    t.float    "total"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "buys", ["product_id"], :name => "index_buys_on_product_id"
+  add_index "buys", ["supplier_id"], :name => "index_buys_on_supplier_id"
 
   create_table "customers", :force => true do |t|
     t.string   "first_name"
@@ -37,7 +50,6 @@ ActiveRecord::Schema.define(:version => 20130806210410) do
   create_table "products", :force => true do |t|
     t.string   "description"
     t.integer  "total"
-    t.float    "price"
     t.datetime "created_at",       :null => false
     t.datetime "updated_at",       :null => false
     t.integer  "product_brand_id"
@@ -45,11 +57,8 @@ ActiveRecord::Schema.define(:version => 20130806210410) do
   end
 
   add_index "products", ["code"], :name => "index_products_on_code", :unique => true
-  add_index "products", ["description"], :name => "index_products_on_description", :unique => true
 
   create_table "suppliers", :force => true do |t|
-    t.string   "first_name"
-    t.string   "last_name"
     t.string   "email"
     t.string   "city"
     t.string   "address"
@@ -57,6 +66,7 @@ ActiveRecord::Schema.define(:version => 20130806210410) do
     t.integer  "cellphone"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "name"
   end
 
 end
