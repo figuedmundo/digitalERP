@@ -1,2 +1,2 @@
-JQuery ->
-  $('.dropdown-toggle').dropdown()
+# JQuery ->
+#   $('.dropdown-toggle').dropdown()
