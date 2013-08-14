@@ -24,11 +24,3 @@ production:
   pool: 5
   timeout: 5000
 
-production:
-  adapter: postgresql
-  database: digitalERP_production
-  encoding: utf8
-  pool: 5
-  host: localhost
-  username: digital
-  password: island

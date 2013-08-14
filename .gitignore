@@ -26,4 +26,6 @@ doc/
 bundler_stubs/
 
 # its for heroku deploy reduce slug size
-.slugignore
+#.slugignore
+
+/config/database.yml
