@@ -8,7 +8,7 @@ gem 'bootstrap-sass', '2.3.2.1'
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
-gem 'sqlite3'
+gem 'pg', '0.16.0'
 
 
 # Gems used only for assets and not required
@@ -26,6 +26,7 @@ end
 gem 'jquery-rails', '2.0.2'
 
 group :development do
+  gem 'sqlite3'
   gem 'annotate', '2.5.0'
 end
 
@@ -37,10 +38,10 @@ gem 'simple_form'
 # gem 'jbuilder'
 
 # Use unicorn as the app server
-# gem 'unicorn'
+gem 'unicorn'
 
 # Deploy with Capistrano
-# gem 'capistrano'
+gem 'capistrano'
 
 # To use debugger
 # gem 'ruby-debug19', :require => 'ruby-debug'
