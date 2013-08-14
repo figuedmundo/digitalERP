@@ -17,6 +17,9 @@
 
 class Customer < ActiveRecord::Base
   attr_accessible :address, :cellphone, :city, :first_name, :last_name, :nit, :phone, :email
+  has_many :sells
+  has_many :products, through: :sells
+
 
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
 
@@ -30,5 +33,9 @@ class Customer < ActiveRecord::Base
   # validates :cellphone, numericality: true
 
   before_save { |customer| customer.email = email.downcase unless email.nil?}
+
+  def full_name
+    "#{self.first_name} #{self.last_name}"
+  end
 
 end

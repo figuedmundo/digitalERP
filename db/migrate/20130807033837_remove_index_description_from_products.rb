@@ -4,6 +4,6 @@ class RemoveIndexDescriptionFromProducts < ActiveRecord::Migration
   end
 
   def down
-    add_index :products, :description, unique: true
+    add_index :products, :description
   end
 end

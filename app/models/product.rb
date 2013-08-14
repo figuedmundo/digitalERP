@@ -5,7 +5,6 @@
 #  id               :integer          not null, primary key
 #  description      :string(255)
 #  total            :integer
-#  price            :float
 #  created_at       :datetime         not null
 #  updated_at       :datetime         not null
 #  product_brand_id :integer
@@ -17,13 +16,14 @@ class Product < ActiveRecord::Base
   belongs_to :product_brand
   has_many :buys
   has_many :suppliers, through: :buys
+  has_many :sells
+  has_many :customers, through: :sells
+
 
 
 
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
-  validates :price, presence: true,
-                    :numericality => true
   validates :total, presence: true,
                     :numericality => { :only_integer => true }
   validates :code, presence: true

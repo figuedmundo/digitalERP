@@ -1,0 +1,46 @@
+<div class="row">
+  <div class="span5 offset4">
+    <h3>Proforma</h3>
+  </div>
+</div>
+
+<div class="row">
+  <div class="span2 offset1">
+    <%= image_tag "/assets/digital.png", class: "img-rounded" %>  
+  </div>
+  
+  <div class="span1 offset1">
+    <p>
+      <strong>Nombre:</strong>  
+    </p>
+    <p>
+      <strong>Telefono:</strong>
+    </p>
+    <p>
+      <strong>Direccion:</strong>
+    </p>
+  </div>
+
+  <div class="span3">
+    <p>
+      <%= @sell.customer.full_name %> 
+    </p>
+    <p>
+      <%= @sell.customer.phone unless @sell.customer.phone.nil? %>
+    </p>
+    <p>
+      <%= @sell.customer.address unless @sell.customer.address.nil?  %>
+    </p>
+  </div>
+  
+  <div class="span2 offset0">
+    <p>
+      <strong>N# </strong> 00<%= @sell.id %>
+    </p>
+    <p>
+      <strong>Fecha: </strong> <%= @sell.created_at.localtime.strftime("%d-%m-%y") %>
+    </p>
+  </div>
+</div>
+<%= render "form" %>
+    
