@@ -4,15 +4,24 @@
       <%# link_to "Digital Island", '#', id: "logo" %>
       <nav>
         <ul class="nav  pull-right">
-          <li><%= link_to "Registrar Producto",  new_product_path %></li>  
-          <li><%= link_to "Comprar", new_buy_path %></li>              
-          <li><%= link_to "Venta", new_sell_path %></li>
           <li><%= link_to "Productos", products_path %></li>              
           <li><%= link_to "Compras", buys_path %></li>              
           <li><%= link_to "Ventas", sells_path %></li>
+
+          <!-- <li class="divider-vertical"></li> -->
+          
           <li><%= link_to "Marca", new_product_brand_path %></li>              
-          <li><%= link_to "Nuevo Cliente", new_customer_path %></li>              
+          <li><%= link_to "Registrar Producto",  new_product_path %></li>  
+          
+          <!-- <li class="divider-vertical"></li> -->
+          
           <li><%= link_to "Nuevo proveedor", new_supplier_path %></li>              
+          <li><%= link_to "Comprar", new_buy_path %></li>              
+          
+          <!-- <li class="divider-vertical"></li> -->
+          
+          <li><%= link_to "Nuevo Cliente", new_customer_path %></li>              
+          <li><%= link_to "Venta", new_sell_path %></li>
 
         </ul>
       </nav>

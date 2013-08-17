@@ -9,7 +9,7 @@ DigitalERP::Application.routes.draw do
   resources :buys
   resources :sells
   
-  root :to => 'products#new'
+  root :to => 'products#index'
 
 
 
