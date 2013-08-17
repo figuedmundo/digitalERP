@@ -1,6 +1,9 @@
 class SellsController < ApplicationController
   def new
-    @sell = Sell.new
+    # flash[:notice] = "#{c.full_name}"
+    @sell = Sell.new()
+    customer = Customer.find_by_id(params[:customer])
+    @sell.customer = customer unless customer.nil?
   end
 
   def create
@@ -8,7 +11,7 @@ class SellsController < ApplicationController
     if @sell.save
       @sell.product.total = @sell.product.total - @sell.amount
       @sell.product.save
-      flash[:success] = "Registrado"
+      # flash[:success] = "Registrado"
       redirect_to @sell
     else
       flash[:notice] = "not created..."

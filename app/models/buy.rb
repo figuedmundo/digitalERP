@@ -18,9 +18,9 @@ class Buy < ActiveRecord::Base
   belongs_to :supplier
 
   validates :amount, presence: true,
-                    numericality: true
+                    numericality: { greater_than: 0 }
   validates :price, presence: true,
-                    numericality: true
+                    numericality: { greater_than: 0 }
 
   before_save :set_total
 

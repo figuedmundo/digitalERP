@@ -12,7 +12,7 @@
 #
 
 class Product < ActiveRecord::Base
-  attr_accessible :description, :total, :product_brand_id, :code
+  attr_accessible :description, :product_brand_id, :code
   belongs_to :product_brand
   has_many :buys
   has_many :suppliers, through: :buys
@@ -24,11 +24,17 @@ class Product < ActiveRecord::Base
 
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
-  validates :total, presence: true,
-                    :numericality => { :only_integer => true }
+
   validates :code, presence: true
 
 
   before_save { |product| product.description = description.downcase }
   before_save { |product| product.code = code.downcase }
+  before_save { |product| product.total = 0 if total.nil? }
+
+  def code_description
+    "#{self.code} - #{self.description}"
+  end
+
+
 end

@@ -9,7 +9,7 @@ class ProductsController < ApplicationController
       flash[:success] = "Registrado"
       redirect_to new_product_path
     else
-      # flash[:error] = "error"
+      flash[:error] = "#{@product.valid?}"
       render :new
     end
   end

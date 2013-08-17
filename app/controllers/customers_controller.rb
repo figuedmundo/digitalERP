@@ -7,7 +7,7 @@ class CustomersController < ApplicationController
     @customer = Customer.new(params[:customer])
     if @customer.save
       flash[:success] = "Cliente registrado"
-      redirect_to new_customer_path
+      redirect_to controller: 'sells', action: :new, customer: @customer
     else
       flash[:notice] = "not created..."
       render :new
