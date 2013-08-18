@@ -17,6 +17,10 @@ class Sell < ActiveRecord::Base
   belongs_to :product
   belongs_to :customer
 
+
+  validates :customer, presence: true
+  validates :product, presence: true
+
   validates :amount, presence: true,
                     numericality: true
   validates :price, presence: true,

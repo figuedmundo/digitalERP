@@ -17,6 +17,9 @@ class Buy < ActiveRecord::Base
   belongs_to :product
   belongs_to :supplier
 
+  validates :supplier, presence: true
+  validates :product, presence: true
+
   validates :amount, presence: true,
                     numericality: { greater_than: 0 }
   validates :price, presence: true,

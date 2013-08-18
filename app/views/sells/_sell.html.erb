@@ -2,7 +2,7 @@
   <td><%= link_to sell.product.code, sell %></td>
   <td><%= sell.product.product_brand.description unless sell.product.product_brand.nil? %></td>
   <td><%= sell.product.description %></td>
-  <td><%= sell.customer.full_name %></td>
+  <td><%= sell.customer.full_name unless sell.customer.nil? %></td>
   <td><%= sell.amount %></td>
   <td><%= sell.price %></td>
   <td><%= sell.total %></td>

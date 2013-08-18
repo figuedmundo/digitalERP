@@ -22,6 +22,7 @@
   </div>
 
   <div class="span3">
+    <% unless @sell.customer.nil? %>
     <p>
       <%= @sell.customer.full_name %> 
     </p>
@@ -31,6 +32,7 @@
     <p>
       <%= @sell.customer.address unless @sell.customer.address.nil?  %>
     </p>
+    <% end %>
   </div>
   
   <div class="span2 offset0">
