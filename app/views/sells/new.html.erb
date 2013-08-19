@@ -7,9 +7,17 @@
       <%= f.association :product, label_method: :code_description %>
       <%= f.association :customer, label_method: :full_name%>
 
-      <%= f.input :amount %>
-      <%= f.input :price %>
+      <%= f.input :amount, wrapper: :append  do %>
+        <%= f.input_field :amount %>
+        <%= content_tag :span, "Bs", class: "add-on" %>
+      <% end %>
 
+      <%= f.input :price, wrapper: :append  do %>
+        <%= f.input_field :price %>
+        <%= content_tag :span, "Bs", class: "add-on" %>
+      <% end %>
+
+    
       <div class="form-actions">
         <%= f.submit "Vender", class: "btn btn-large btn-primary" %>
         <%= link_to "Cancelar", new_sell_path, class: "btn btn-large" %>
@@ -18,11 +26,3 @@
   </div>
 </div>
 
-<!-- , label_method: :description, value_method: :d  -->
-
-<!--
-<%# form_tag({controller: "places", action: "search"},  remote: true) do %>
-  <%# text_field_tag :query, params[:query] %>
-  <%# submit_tag "buscar destino", name: nil %>
-<%# end -%>
- -->            

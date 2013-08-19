@@ -18,7 +18,7 @@ class Sell < ActiveRecord::Base
   belongs_to :customer
 
 
-  validates :customer, presence: true
+  # validates :customer, presence: true
   validates :product, presence: true
 
   validates :amount, presence: true,
@@ -26,6 +26,7 @@ class Sell < ActiveRecord::Base
   validates :price, presence: true,
                     numericality: true
 
+  before_save { |sell| sell.customer_id = Customer.where(last_name: "anonimo").first.id if customer_id.nil? }
   before_save :set_total
 
   def set_total

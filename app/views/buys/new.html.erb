@@ -7,8 +7,18 @@
       <%= f.association :product, label_method: :code_description %>
       <%= f.association :supplier, label_method: :name %>
 
-      <%= f.input :amount %>
-      <%= f.input :price %>
+      
+      <%= f.input :amount, wrapper: :append  do %>
+        <%= f.input_field :amount %>
+        <%= content_tag :span, "Bs", class: "add-on" %>
+      <% end %>
+
+      <%= f.input :price, wrapper: :append  do %>
+        <%= f.input_field :price %>
+        <%= content_tag :span, "Bs", class: "add-on" %>
+      <% end %>
+
+      
 
       <div class="form-actions">
         <%= f.submit "Comprar", class: "btn btn-large btn-primary" %>

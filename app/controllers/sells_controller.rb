@@ -11,8 +11,12 @@ class SellsController < ApplicationController
     if @sell.save
       @sell.product.total = @sell.product.total - @sell.amount
       @sell.product.save
-      # flash[:success] = "Registrado"
-      redirect_to @sell
+      if @sell.customer.last_name != "anonimo"
+        redirect_to @sell
+      else
+        flash[:success] = "Venta Registrada"
+        redirect_to new_sell_path
+      end
     else
       flash[:notice] = "not created..."
       render :new
@@ -20,7 +24,7 @@ class SellsController < ApplicationController
   end
 
   def index
-    @sells = Sell.all
+    @sells = Sell.order(:created_at).all
   end
 
   def show

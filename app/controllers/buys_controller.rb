@@ -21,7 +21,7 @@ class BuysController < ApplicationController
   end
 
   def index
-    @buys = Buy.all
+    @buys = Buy.order(:created_at).all
   end
 end
 

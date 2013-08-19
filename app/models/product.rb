@@ -21,6 +21,7 @@ class Product < ActiveRecord::Base
 
 
 
+  # validates :product_brand, presence: true
 
   validates :description, presence: true,
                           uniqueness: { case_sensitive: false }
